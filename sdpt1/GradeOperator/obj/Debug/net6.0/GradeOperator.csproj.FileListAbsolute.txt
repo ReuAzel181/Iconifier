@@ -1,0 +1,14 @@
+E:\VS STUD\sdpt1\GradeOperator\obj\Debug\net6.0\GradeOperator.GeneratedMSBuildEditorConfig.editorconfig
+E:\VS STUD\sdpt1\GradeOperator\obj\Debug\net6.0\GradeOperator.AssemblyInfoInputs.cache
+E:\VS STUD\sdpt1\GradeOperator\obj\Debug\net6.0\GradeOperator.AssemblyInfo.cs
+E:\VS STUD\sdpt1\GradeOperator\obj\Debug\net6.0\GradeOperator.csproj.CoreCompileInputs.cache
+E:\VS STUD\sdpt1\GradeOperator\bin\Debug\net6.0\GradeOperator.exe
+E:\VS STUD\sdpt1\GradeOperator\bin\Debug\net6.0\GradeOperator.deps.json
+E:\VS STUD\sdpt1\GradeOperator\bin\Debug\net6.0\GradeOperator.runtimeconfig.json
+E:\VS STUD\sdpt1\GradeOperator\bin\Debug\net6.0\GradeOperator.dll
+E:\VS STUD\sdpt1\GradeOperator\bin\Debug\net6.0\GradeOperator.pdb
+E:\VS STUD\sdpt1\GradeOperator\obj\Debug\net6.0\GradeOperator.dll
+E:\VS STUD\sdpt1\GradeOperator\obj\Debug\net6.0\refint\GradeOperator.dll
+E:\VS STUD\sdpt1\GradeOperator\obj\Debug\net6.0\GradeOperator.pdb
+E:\VS STUD\sdpt1\GradeOperator\obj\Debug\net6.0\GradeOperator.genruntimeconfig.cache
+E:\VS STUD\sdpt1\GradeOperator\obj\Debug\net6.0\ref\GradeOperator.dll
