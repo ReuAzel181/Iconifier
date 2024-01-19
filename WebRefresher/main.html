@@ -5,19 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style.css" />
   <title>Document</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <h3><center>LEARNING CSS</center></h3>
   <div id="table-container"> <!-- Container for the table -->
-    <table border="1" style="border-collapse:separate; border-spacing: 20px;" cellpadding="20">
+    <table border="1" style="border-collapse: separate; border-spacing: 20px;" cellpadding="20">
       <tr class="spaceUnder">
-        <td onclick="showImage(this, 'images/color.png')" >Color</td>
+        <td onclick="showContent('images/color.png', 'images/color.png')">Color</td>
+        <td id="hiddenText" class="hidden">This should be displayed</td>
       </tr>
       <tr class="spaceUnder">
-        <td onclick="showImage(this, 'images/text_transform.png')" > Text Transform </td>
+        <td onclick="showContent('Text Transform content', 'images/text_transform.png')">Text Transform</td>
       </tr>
       <tr class="spaceUnder">
-        <td onclick="showImage(this, 'images/text_shadow.png')" > Text Shadow </td>
+        <td onclick="showContent('Text Shadow content', 'images/text_shadow.png')">Text Shadow</td>
       </tr>
     </table>
   </div>
@@ -25,26 +31,27 @@
   <script>
     var currentImage = null;
 
-    function showImage(cell, imagePath) {
+    function showContent(textContent, imagePath) {
+      // Display text
+      var textElement = document.getElementById('hiddenText');
+      textElement.textContent = textContent;
+      textElement.classList.remove('hidden');
+
+      // Show image twice
+      showImage(imagePath);
+      showImage(imagePath);
+    }
+
+    function showImage(imagePath) {
       console.log("Image path:", imagePath);
 
-      // Remove the existing image if any
-      if (currentImage) {
-        document.getElementById('table-container').removeChild(currentImage);
-      }
-
+      // Create a new image element
       var img = document.createElement("img");
       img.src = imagePath;
       img.classList.add('table-image'); // Apply the CSS class
 
       // Append the image to the container div
       document.getElementById('table-container').appendChild(img);
-
-      // Update the currentImage variable
-      currentImage = img;
-
-      // Change cell color on click
-      cell.classList.add('clicked');
     }
   </script>
 </body>
