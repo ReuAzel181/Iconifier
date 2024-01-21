@@ -1,0 +1,34 @@
+#table-container {
+    position: relative;
+  }
+  
+  /*
+  img.table-image {
+    width: 30%;
+    height: 100%;
+    display: block;
+    margin: 0 auto; 
+    position: absolute;
+    top: 0;
+    left: 80%;
+    transform: translateX(-50%);
+  } 
+  */
+  .table-image {
+    width: 400px; /* Set the fixed width for the image */
+    height: 300px; /* Set the fixed height for the image */
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+    position: absolute;
+    top: 0;
+    left: 80%;
+    transform: translateX(-50%);
+  }
+  
+  /* Styling for the clicked cell */
+  td.clicked {
+    background-color: green; /* Change this to the desired color */
+    color: white; /* Change this to the desired text color */
+  }
+  
+  
