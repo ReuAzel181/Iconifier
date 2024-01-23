@@ -29,8 +29,6 @@
   </div>
 
   <script>
-    var currentImage = null;
-
     function loadAndShowContent(htmlFile, imagePath) {
       // Fetch the content of the specified HTML file
       fetch(htmlFile)
@@ -43,6 +41,9 @@
         })
         .catch(error => console.error('Error fetching content:', error));
 
+      // Clear the images in the table-container before showing the image
+      clearTableContainer();
+
       // Show image twice
       showImage(imagePath);
       showImage(imagePath);
@@ -53,6 +54,9 @@
       var textElement = document.getElementById('hiddenContent');
       textElement.textContent = textContent;
       textElement.classList.remove('hidden');
+
+      // Clear the images in the table-container before showing the image
+      clearTableContainer();
 
       // Show image twice
       showImage(imagePath);
@@ -69,6 +73,16 @@
 
       // Append the image to the container div
       document.getElementById('table-container').appendChild(img);
+    }
+
+    function clearTableContainer() {
+      // Clear only the images in the table container
+      var tableContainer = document.getElementById('table-container');
+      var images = tableContainer.querySelectorAll('.table-image');
+      
+      images.forEach(image => {
+        tableContainer.removeChild(image);
+      });
     }
   </script>
 </body>

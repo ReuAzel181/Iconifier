@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style.css" />
   <title>Document</title>
+  <script src="script.js"></script>  
   <style>
-    .hidden {
-      display: none;
-    }
+
   </style>
 </head>
 <body>
@@ -27,49 +26,5 @@
       </tr>
     </table>
   </div>
-
-  <script>
-    var currentImage = null;
-
-    function loadAndShowContent(htmlFile, imagePath) {
-      // Fetch the content of the specified HTML file
-      fetch(htmlFile)
-        .then(response => response.text())
-        .then(data => {
-          // Update the hidden content with the fetched HTML
-          var hiddenContent = document.getElementById('hiddenContent');
-          hiddenContent.innerHTML = data;
-          hiddenContent.classList.remove('hidden');
-        })
-        .catch(error => console.error('Error fetching content:', error));
-
-      // Show image twice
-      showImage(imagePath);
-      showImage(imagePath);
-    }
-
-    function showContent(textContent, imagePath) {
-      // Display text
-      var textElement = document.getElementById('hiddenContent');
-      textElement.textContent = textContent;
-      textElement.classList.remove('hidden');
-
-      // Show image twice
-      showImage(imagePath);
-      showImage(imagePath);
-    }
-
-    function showImage(imagePath) {
-      console.log("Image path:", imagePath);
-
-      // Create a new image element
-      var img = document.createElement("img");
-      img.src = imagePath;
-      img.classList.add('table-image'); // Apply the CSS class
-
-      // Append the image to the container div
-      document.getElementById('table-container').appendChild(img);
-    }
-  </script>
 </body>
 </html>

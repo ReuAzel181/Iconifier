@@ -15,14 +15,21 @@
   } 
   */
   .table-image {
-    width: 400px; /* Set the fixed width for the image */
-    height: 300px; /* Set the fixed height for the image */
+    width: 300px; /* Default width */
+    height: 300px; /* Default height */
+    min-width: 10%; /* Minimum width when resized */
+    max-width: 100%; /* Maximum width when resized */
+    height: auto; /* Maintain aspect ratio */
     display: block;
     margin: 0 auto; /* Center the image horizontally */
     position: absolute;
     top: 0;
     left: 80%;
     transform: translateX(-50%);
+  }
+  
+  .hidden {
+    display: none;
   }
   
   /* Styling for the clicked cell */
