@@ -1,2 +1,2 @@
 # WebDev_Practice
-Nabura ko yung una umays
+Just practicing js and css
