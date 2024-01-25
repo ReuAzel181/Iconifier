@@ -1,41 +1,49 @@
 #table-container {
-    position: relative;
-  }
-  
-  /*
-  img.table-image {
-    width: 30%;
-    height: 100%;
-    display: block;
-    margin: 0 auto; 
-    position: absolute;
-    top: 0;
-    left: 80%;
-    transform: translateX(-50%);
-  } 
-  */
-  .table-image {
-    width: 300px; /* Default width */
-    height: 300px; /* Default height */
-    min-width: 10%; /* Minimum width when resized */
-    max-width: 100%; /* Maximum width when resized */
-    height: auto; /* Maintain aspect ratio */
-    display: block;
-    margin: 0 auto; /* Center the image horizontally */
-    position: absolute;
-    top: 0;
-    left: 80%;
-    transform: translateX(-50%);
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  /* Styling for the clicked cell */
-  td.clicked {
-    background-color: green; /* Change this to the desired color */
-    color: white; /* Change this to the desired text color */
-  }
-  
-  
+  position: relative;
+}
+
+
+#table-container {
+  text-align: center;
+}
+
+/*
+img.table-image {
+  width: 30%;
+  height: 100%;
+  display: block;
+  margin: 0 auto; 
+  position: absolute;
+  top: 0;
+  left: 80%;
+  transform: translateX(-50%);
+} 
+*/
+.table-image {
+  width: 300px; /* Default width */
+  height: 300px; /* Default height */
+  min-width: 10%; /* Minimum width when resized */
+  max-width: 100%; /* Maximum width when resized */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto; /* Center the image horizontally */
+  position: absolute;
+  top: 0;
+  left: 80%;
+  transform: translateX(-50%);
+}
+
+.hidden {
+  display: none;
+}
+
+.color {
+  text-align: left;
+}
+
+/* Styling for the clicked cell */
+td.clicked {
+  background-color: green; /* Change this to the desired color */
+  color: white; /* Change this to the desired text color */
+}
+
