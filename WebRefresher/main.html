@@ -4,22 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="style1.css" />
   <title>Document</title>
   <script src="script.js"></script>  
   <style>
+
 
   </style>
 </head>
 <body>
   <h3><center>LEARNING CSS</center></h3>
   <div id="table-container"> <!-- Container for the table -->
-    <table border="1" style="border-collapse: separate; border-spacing: 20px;" cellpadding="20">
+    <table class="fixed-table" border="1" style="border-collapse: separate; border-spacing: 20px;">
       <tr class="spaceUnder">
-        <td onclick="loadAndShowContent('pre-code.html', 'images/color.png')">Color</td>
+        <td onclick="loadAndShowContent('pre-code.html', 'color', 'images/color.png')">Color</td>
         <td id="hiddenContent" class="hidden"></td>
       </tr>
       <tr class="spaceUnder">
-        <td onclick="showContent('Text Transform content', 'images/text_transform.png')">Text Transform</td>
+        <td onclick="loadAndShowContent('pre-code.html', 'color2','images/text_transform.png')">Text Transform</td>
+        <td id="hiddenContent" class="hidden"></td>
       </tr>
       <tr class="spaceUnder">
         <td onclick="showContent('Text Shadow content', 'images/text_shadow.png')">Text Shadow</td>

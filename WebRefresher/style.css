@@ -1,24 +1,32 @@
 #table-container {
   position: relative;
+  left: 5%;
+  width: 800px;
 }
 
 
-#table-container {
-  text-align: center;
+
+.fixed-table {
+  width: 600px; /* Set the fixed width for the entire table */
+  table-layout: fixed;
 }
 
-/*
-img.table-image {
-  width: 30%;
-  height: 100%;
-  display: block;
-  margin: 0 auto; 
-  position: absolute;
-  top: 0;
-  left: 80%;
-  transform: translateX(-50%);
-} 
-*/
+.fixed-table td {
+  padding: 10px; /* Add padding for better appearance */
+  text-align: center; /* Center text in cells */
+
+}
+
+.fixed-table td:first-child {
+  width: 10%; /* Set a smaller width for the first column */
+}
+
+.fixed-table td:not(:first-child) {
+  padding: 0;
+  width: 40%; 
+  background-color: black;/* Set a width for other columns */
+}
+
 .table-image {
   width: 300px; /* Default width */
   height: 300px; /* Default height */
@@ -29,7 +37,7 @@ img.table-image {
   margin: 0 auto; /* Center the image horizontally */
   position: absolute;
   top: 0;
-  left: 80%;
+  left: 100%;
   transform: translateX(-50%);
 }
 
@@ -41,9 +49,8 @@ img.table-image {
   text-align: left;
 }
 
-/* Styling for the clicked cell */
-td.clicked {
-  background-color: green; /* Change this to the desired color */
+/* Styling for the clicked row */
+tr.clicked td {
+  background-color: green;
   color: white; /* Change this to the desired text color */
 }
-

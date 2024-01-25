@@ -6,6 +6,21 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
   <title>Document</title>
   <style>
+    #table-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #image-container {
+      margin-top: 20px; /* Adjust as needed */
+    }
+
+    img {
+      width: 200px; /* Set the desired width for the image */
+      height: auto; /* Maintain the aspect ratio */
+    }
+
     .hidden {
       display: none;
     }
@@ -16,7 +31,7 @@
   <div id="table-container"> <!-- Container for the table -->
     <table border="1" style="border-collapse: separate; border-spacing: 20px;" cellpadding="20">
       <tr class="spaceUnder">
-        <td onclick="loadAndShowContent('pre-code.html', 'images/color.png')">Color</td>
+        <td onclick="loadAndShowContent('pre-code.html', 'color', 'images/color.png')">Color</td>
         <td id="hiddenContent" class="hidden"></td>
       </tr>
       <tr class="spaceUnder">
@@ -27,40 +42,37 @@
       </tr>
     </table>
   </div>
+  <!-- Container for the image -->
+  <div id="image-container">
+    <img src="images/color.png" alt="Color Image">
+  </div>
 
   <script>
-    function loadAndShowContent(htmlFile, imagePath) {
-      // Fetch the content of the specified HTML file
-      fetch(htmlFile)
+    function loadAndShowContent(filePath, targetId, imagePath) {
+      // Fetch the content from the file
+      fetch(filePath)
         .then(response => response.text())
-        .then(data => {
-          // Update the hidden content with the fetched HTML
-          var hiddenContent = document.getElementById('hiddenContent');
-          hiddenContent.innerHTML = data;
-          hiddenContent.classList.remove('hidden');
+        .then(html => {
+          // Create a temporary container element
+          var tempContainer = document.createElement('div');
+          tempContainer.innerHTML = html;
+
+          // Find the target element by id within the fetched content
+          var contentElement = tempContainer.querySelector('#' + targetId + ' pre');
+
+          // Check if the target element is found
+          if (contentElement) {
+            // Display the content
+            document.getElementById('hiddenContent').innerHTML = contentElement.innerHTML;
+            document.getElementById('hiddenContent').classList.remove('hidden');
+
+            // Show the image
+            showImage(imagePath);
+          } else {
+            console.error('Element with id ' + targetId + ' not found in the fetched content.');
+          }
         })
         .catch(error => console.error('Error fetching content:', error));
-
-      // Clear the images in the table-container before showing the image
-      clearTableContainer();
-
-      // Show image twice
-      showImage(imagePath);
-      showImage(imagePath);
-    }
-
-    function showContent(textContent, imagePath) {
-      // Display text
-      var textElement = document.getElementById('hiddenContent');
-      textElement.textContent = textContent;
-      textElement.classList.remove('hidden');
-
-      // Clear the images in the table-container before showing the image
-      clearTableContainer();
-
-      // Show image twice
-      showImage(imagePath);
-      showImage(imagePath);
     }
 
     function showImage(imagePath) {
@@ -75,14 +87,14 @@
       document.getElementById('table-container').appendChild(img);
     }
 
-    function clearTableContainer() {
-      // Clear only the images in the table container
-      var tableContainer = document.getElementById('table-container');
-      var images = tableContainer.querySelectorAll('.table-image');
-      
-      images.forEach(image => {
-        tableContainer.removeChild(image);
-      });
+    function showContent(textContent, imagePath) {
+      // Display text
+      var textElement = document.getElementById('hiddenContent');
+      textElement.textContent = textContent;
+      textElement.classList.remove('hidden');
+
+      // Show image
+      showImage(imagePath);
     }
   </script>
 </body>
