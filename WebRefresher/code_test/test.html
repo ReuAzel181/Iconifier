@@ -2,16 +2,38 @@
 <html lang="en">
 <head>  
     <style>
-    selector {
-        text-shadow: h-pos v-pos blur color;
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        flex-direction: column;
     }
-    p {
-        text-shadow: 1px 1px 10px red;
+
+    .container {
+        border: 1px solid black; /* Add border style here */
+        padding: 70px; /* Add padding for better appearance */
+    }
+
+    h1 {
+        text-transform: uppercase;
+    }
+    h2 {
+        text-transform: lowercase;
+    }
+    h3 {
+        text-transform: capitalize;
     }
     </style>
 </head>
 <body>
-    <p>HELLO1</p>
-    <h1 id="selector">HELLO2</h1>
+    <div class="container" >
+        <h1>hello</h1>
+        <h2>hello</h2>
+        <h3>hello</h3>
+
+
+    </div>
 </body>
 </html>

@@ -15,7 +15,6 @@ function loadAndShowContent(htmlFile, targetId, imagePath) {
 
                 clearTableContainer();
                 showImage(imagePath);
-                showImage(imagePath);
 
                 // Remove 'clicked' class from all rows
                 let allRows = document.querySelectorAll('#table-container table tr');
@@ -34,9 +33,6 @@ function loadAndShowContent(htmlFile, targetId, imagePath) {
 }
 
 
-
-
-
 function showContent(textContent, imagePath) {
     // Display text
     let textElement = document.getElementById('hiddenContent');
@@ -46,8 +42,6 @@ function showContent(textContent, imagePath) {
     // Clear the images in the table-container before showing the image
     clearTableContainer();
 
-    // Show image twice
-    showImage(imagePath);
     showImage(imagePath);
 }
 

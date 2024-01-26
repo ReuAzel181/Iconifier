@@ -1,10 +1,8 @@
 #table-container {
   position: relative;
-  left: 5%;
+  left: 0;
   width: 800px;
 }
-
-
 
 .fixed-table {
   width: 600px; /* Set the fixed width for the entire table */
@@ -14,7 +12,6 @@
 .fixed-table td {
   padding: 10px; /* Add padding for better appearance */
   text-align: center; /* Center text in cells */
-
 }
 
 .fixed-table td:first-child {
@@ -28,8 +25,8 @@
 }
 
 .table-image {
-  width: 300px; /* Default width */
-  height: 300px; /* Default height */
+  width: 450px; /* Default width */
+  height: 450px; /* Default height */
   min-width: 10%; /* Minimum width when resized */
   max-width: 100%; /* Maximum width when resized */
   height: auto; /* Maintain aspect ratio */
@@ -37,7 +34,7 @@
   margin: 0 auto; /* Center the image horizontally */
   position: absolute;
   top: 0;
-  left: 100%;
+  left: 110%;
   transform: translateX(-50%);
 }
 
