@@ -1,7 +1,7 @@
-#Folder Iconifier
+# Folder Iconifier
 Folder Iconifier is a Python application that allows users to apply custom icons to folders and display a random fun fact upon completion. The GUI is built with tkinter, providing a user-friendly interface for managing folder icons.
 
-##Features
+## Features
 Create Multi-Size Icons: Convert images into .ico files with multiple sizes.
 Apply Icons to Folders: Easily assign custom icons to folders.
 Random Fun Facts: Get a fun fact displayed in green text once processing is complete.
