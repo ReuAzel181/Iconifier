@@ -1,0 +1,37 @@
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore log files
+*.log
+iconifier.log
+
+# Ignore virtual environments
+venv/
+env/
+ENV/
+.venv/
+.VENV/
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore compiled C extensions
+*.so
+
+# Ignore tkinter temp files
+*.tcl
+*.ttk
+
+# Ignore temp files created by the OS or editor
+*.swp
+*.swo
+*.bak
+*~
+
+# Ignore the folders where executables might be stored
+dist/
+build/
+*.egg-info/
