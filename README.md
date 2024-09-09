@@ -32,6 +32,10 @@ Click the "Start Processing" button to apply icons to folders. The progress will
 **4. View Random Fact:**
 After processing, a random fun fact will be displayed in green text in the log area.
 
+![UI](https://raw.githubusercontent.com/ReuAzel181/Iconifier/023fc56737119410a4db4152bb24d2905926b287/rm_imgs/start.png)
+![UI](https://raw.githubusercontent.com/ReuAzel181/Iconifier/023fc56737119410a4db4152bb24d2905926b287/rm_imgs/done.png)
+![UI](https://raw.githubusercontent.com/ReuAzel181/Iconifier/023fc56737119410a4db4152bb24d2905926b287/rm_imgs/into.png)
+
 ## Executable
 For those who want the executable, go into the dist folder and download iconifier.exe. Note: The icon might take a while to load. If no icon is applied, rerun the program. Also, ensure that the main file path specified is the folder containing the images, not just the images themselves.
 
