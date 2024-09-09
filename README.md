@@ -32,8 +32,11 @@ Click the "Start Processing" button to apply icons to folders. The progress will
 **4. View Random Fact:**
 After processing, a random fun fact will be displayed in green text in the log area.
 
-<img src="https://raw.githubusercontent.com/ReuAzel181/Iconifier/023fc56737119410a4db4152bb24d2905926b287/rm_imgs/start.png" alt="UI" width="300"/>
-<img src="https://raw.githubusercontent.com/ReuAzel181/Iconifier/023fc56737119410a4db4152bb24d2905926b287/rm_imgs/done.png" alt="UI" width="300"/>
+<p>
+  <img src="https://raw.githubusercontent.com/ReuAzel181/Iconifier/023fc56737119410a4db4152bb24d2905926b287/rm_imgs/start.png" alt="UI" width="350" style="display: inline-block; margin-right: 10px;"/>
+  <img src="https://raw.githubusercontent.com/ReuAzel181/Iconifier/023fc56737119410a4db4152bb24d2905926b287/rm_imgs/done.png" alt="UI" width="350" style="display: inline-block;"/>
+</p>
+
 
 ![UI](https://raw.githubusercontent.com/ReuAzel181/Iconifier/023fc56737119410a4db4152bb24d2905926b287/rm_imgs/into.png)
 
