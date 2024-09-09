@@ -20,16 +20,16 @@ Copy code
 pip install pillow ttkthemes
 
 # Usage
-1. Launch the Application:
+**1. Launch the Application:**
 Execute iconifier.py to start the GUI application.
 
-2. Select Folder:
+**2. Select Folder:**
 Click the "Browse" button to choose the folder containing images for the icons.
 
-3. Start Processing:
+**3. Start Processing:**
 Click the "Start Processing" button to apply icons to folders. The progress will be shown, and the process will complete with a notification.
 
-4. View Random Fact:
+**4. View Random Fact:**
 After processing, a random fun fact will be displayed in green text in the log area.
 
 ## Executable
