@@ -1,13 +1,15 @@
 import os
+import sys
 import shutil
-from PIL import Image
+from PIL import Image, ImageTk
 import logging
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk, scrolledtext
 from ttkthemes import ThemedTk
+from tkinter import font 
 from threading import Thread
-import time
 import random
+import subprocess
 
 # Set up logging
 logging.basicConfig(filename='iconifier.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -56,6 +58,7 @@ def ensure_folder_exists(folder_path):
         os.makedirs(folder_path)
 
 def process_folder(folder_path):
+    print(f"Processing folder: {folder_path}")  # Debugging statement
     for file_name in os.listdir(folder_path):
         if file_name.endswith(('.png', '.jpg', '.jpeg', '.bmp')):
             first_image_path = os.path.join(folder_path, file_name)
@@ -66,7 +69,10 @@ def process_folder(folder_path):
             create_multi_size_icon(icon_image_copy, icon_path)
             os.remove(icon_image_copy)
 
-            return apply_folder_icon(folder_path, icon_path)
+            result = apply_folder_icon(folder_path, icon_path)
+            print(f"Icon application result for {folder_path}: {result}")  # Debugging statement
+
+            return result
 
 def process_folders():
     folder_path = folder_path_var.get()
@@ -74,10 +80,13 @@ def process_folders():
         messagebox.showerror("Error", "Invalid folder path")
         return
 
-    progress_bar['value'] = 0
-    log_output.delete(1.0, tk.END)
-    root.update_idletasks()
+    # Disable the Entry widget while processing
+    folder_entry.config(state=tk.DISABLED)
 
+    progress_bar['value'] = 0
+    log_output.config(state=tk.NORMAL)  # Enable editing to insert text
+    log_output.delete(1.0, tk.END)
+    
     already_applied_count = 0
     error_count = 0
     total_folders = len([f for f in os.listdir(folder_path) if os.path.isdir(os.path.join(folder_path, f))])
@@ -90,10 +99,11 @@ def process_folders():
             else:
                 error_count += 1
 
-            progress_bar['value'] = (i + 1) / total_folders * 100
-            status_label.config(text=f"Processing folder: {folder_name}")
-            root.update_idletasks()
-            time.sleep(0.1) 
+            # Update progress bar and UI only after every few folders to avoid too frequent updates
+            if i % 10 == 0 or i == total_folders - 1:  # Update every 10 folders or on the last one
+                progress_bar['value'] = (i + 1) / total_folders * 100
+                status_label.config(text=f"Processing folder: {folder_name}")
+                root.update_idletasks()
 
     # List of random facts
     facts = [
@@ -155,13 +165,45 @@ def process_folders():
     log_output.yview(tk.END)
     status_label.config(text="Processing complete!")
 
+    # Enable the Entry widget and show the "Open Folder" button
+    folder_entry.config(state=tk.NORMAL)
+    open_folder_button.pack(pady=(5, 10), fill=tk.X)  # Ensure button is packed
+
+    log_output.config(state=tk.DISABLED)  # Make the ScrolledText read-only
+
 def start_process():
     process_thread = Thread(target=process_folders)
     process_thread.start()
 
 def browse_folder():
     folder_selected = filedialog.askdirectory()
-    folder_path_var.set(folder_selected)
+    if folder_selected:  # Ensure a folder was selected
+        folder_selected = folder_selected.strip()  # Strip any leading/trailing spaces
+        folder_path_var.set(folder_selected)
+        print(f"Folder path set to: {folder_path_var.get()}")  # Debugging statement
+
+def open_folder():
+    folder_path = folder_path_var.get()
+    
+    if not folder_path:
+        print("No folder path set.")  # Debugging statement
+        return
+
+    folder_path = folder_path.strip()  # Ensure no leading/trailing spaces
+    if os.path.isdir(folder_path):
+        print(f"Opening folder path: {folder_path}")  # Debugging statement
+        if sys.platform == 'win32':
+            # Use os.startfile on Windows (recommended for opening folders)
+            try:
+                os.startfile(folder_path)
+            except Exception as e:
+                print(f"Error opening folder on Windows: {e}")  # Debugging statement
+        elif sys.platform == 'darwin':  # macOS
+            subprocess.Popen(['open', folder_path])
+        elif sys.platform == 'linux':  # Linux
+            subprocess.Popen(['xdg-open', folder_path])
+    else:
+        print(f"Invalid folder path: {folder_path}")  # Debugging statement
 
 root = ThemedTk(theme="breeze")  # You can choose other themes like "arc", "radiance", etc.
 root.title("Basta SL, WOW!")
@@ -186,21 +228,27 @@ frame_controls.pack(fill=tk.X)
 
 ttk.Label(frame_controls, text="Select Folder:").pack(pady=5, anchor=tk.W)
 folder_path_var = tk.StringVar()
-ttk.Entry(frame_controls, textvariable=folder_path_var, width=50).pack(pady=5, side=tk.LEFT, fill=tk.X, expand=True)
+folder_entry = ttk.Entry(frame_controls, textvariable=folder_path_var, width=50)
+folder_entry.pack(pady=5, side=tk.LEFT, fill=tk.X, expand=True)
 ttk.Button(frame_controls, text="Browse", command=browse_folder).pack(pady=5, side=tk.RIGHT)
 
-ttk.Button(root, text="Start Processing", command=start_process).pack(pady=10)
+ttk.Button(root, text="Start Processing", command=start_process).pack(pady=(10, 5))
 
 progress_bar = ttk.Progressbar(root, orient="horizontal", length=500, mode="determinate")
-progress_bar.pack(pady=10)
+progress_bar.pack(pady=(5, 10))
 
 status_label = ttk.Label(root, text="Please select a folder and start processing")
-status_label.pack(pady=5)
+status_label.pack(pady=(5, 10))
 
 frame_log = ttk.Frame(root, padding="10")
 frame_log.pack(fill=tk.BOTH, expand=True)
 
-log_output = scrolledtext.ScrolledText(frame_log, wrap=tk.WORD, height=10)
+log_output = scrolledtext.ScrolledText(frame_log, wrap=tk.WORD, height=7)
 log_output.pack(fill=tk.BOTH, expand=True)
+
+# Create and hide the Open Folder button initially
+open_folder_button = ttk.Button(root, text="Open Processed Folder", command=open_folder)
+open_folder_button.pack(pady=(5, 10), fill=tk.X)  # Ensure button is packed
+open_folder_button.pack_forget()  # Hide initially
 
 root.mainloop()
