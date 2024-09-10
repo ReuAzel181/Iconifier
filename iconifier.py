@@ -15,6 +15,7 @@ import subprocess
 logging.basicConfig(filename='iconifier.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def create_multi_size_icon(input_image_path, output_icon_path):
+    
     try:
         img = Image.open(input_image_path)
         icon_sizes = [(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)]
@@ -108,26 +109,17 @@ def process_folders():
     # List of random facts
     facts = [
         "Honey never spoils.",
-        "A group of flamingos is called a 'flamboyance.'",
-        "The heart of a shrimp is located in its head.",
-        "Bananas are berries, but strawberries aren't.",
-        "The Eiffel Tower can be 15 cm taller during the summer.",
-        "An octopus has three hearts.",
-        "A day on Venus is longer than a year on Venus.",
-        "Wombat poop is cube-shaped.",
-        "Sharks have been around longer than trees",
-        "A group of cats is called a clowder",
-        "The unicorn is Scotland's national animal", 
-        "A day on Mercury is equivalent to 59 Earth days", 
-        "Octopuses have blue blood", 
-        "Honeybees can recognize human faces", 
-        "A snail can sleep for three years", 
+        "A group of flamingos is called a 'flamboyance.'", "The heart of a shrimp is located in its head.",
+        "Bananas are berries, but strawberries aren't.", "The Eiffel Tower can be 15 cm taller during the summer.",
+        "An octopus has three hearts.", "A day on Venus is longer than a year on Venus.",
+        "Wombat poop is cube-shaped.", "Sharks have been around longer than trees",
+        "A group of cats is called a clowder", "The unicorn is Scotland's national animal", 
+        "A day on Mercury is equivalent to 59 Earth days", "Octopuses have blue blood", 
+        "Honeybees can recognize human faces", "A snail can sleep for three years", 
         "The longest time between two twins being born is 87 days", 
-        "Some turtles can breathe through their butts", 
-        "The inventor of the Pringles can is now buried in one", 
+        "Some turtles can breathe through their butts", "The inventor of the Pringles can is now buried in one", 
         "Wombat feces are cube-shaped to prevent them from rolling away", 
-        "The world’s largest desert is Antarctica", 
-        "An adult human is made up of about 37.2 trillion cells"
+        "The world’s largest desert is Antarctica", "An adult human is made up of about 37.2 trillion cells"
     ]
     
     # Pick a random fact
