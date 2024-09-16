@@ -15,7 +15,7 @@ Folder Iconifier is a Python application designed to simplify the organization o
 
 
 ### Install the required packages using pip:
-pip install pillow ttkthemes
+  pip install pillow ttkthemes
 
 # Usage
 **1. Launch the Application:**
